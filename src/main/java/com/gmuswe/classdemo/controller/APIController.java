@@ -13,15 +13,6 @@ public class APIController {
     @Autowired
     I18NService service;
 
-    @RequestMapping(value = "/english/{id}", method = RequestMethod.GET)
-    public LanguageData getPairEnglish(@PathVariable String id) {
-        return service.getLanguageData(id, "EN");
-    }
-    @RequestMapping(value = "/spanish/{id}", method = RequestMethod.GET)
-    public LanguageData getPairSpanish(@PathVariable String id) {
-        return service.getLanguageData(id, "ES");
-    }
-
     @RequestMapping(value = "/english", method = RequestMethod.GET)
     public List<LanguageData> getAllEnglish() {
         return service.getAllLanguageData("EN");
@@ -31,13 +22,4 @@ public class APIController {
         return service.getAllLanguageData("ES");
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public void addLanguagePairs(@RequestBody LanguageData data) {
-        service.insertLanguageData(data);
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateLanguagePair(@RequestBody LanguageData data) {
-        service.updateLanguageData(data);
-    }
 }
